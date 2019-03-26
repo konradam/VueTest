@@ -1,37 +1,35 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+    <v-title>{{msg}}</v-title>
+    <h1>{{age}}</h1>
+    <control></control>
+    <keyboard></keyboard>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Hello from './components/HelloWorld.vue'
+import Keyboard from './components/Keyboard.vue'
 
 export default {
-  name: 'App',
+  props: {
+    age: {
+      type: Number,
+      default: 20
+    }
+  },
   components: {
-    HelloWorld
+    'control': Hello,
+    'keyboard': Keyboard
   },
   data () {
     return {
-      //
+      msg: "Hello world :)"
+    }
+  },
+  methods: {
+    greeting: function(){
+      return "Greeting from function"
     }
   }
 }
