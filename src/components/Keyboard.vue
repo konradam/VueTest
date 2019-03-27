@@ -1,7 +1,8 @@
 <template>
   <div>
     <h2>Keyboard</h2>
-    <v-text-field label="Name" outline class = "input-name" />
+    <v-text-field label="Name" outline style="width: 10cm"/>
+    <h2>{{lastname}}</h2>
   </div>
 </template>
 

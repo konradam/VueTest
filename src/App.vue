@@ -1,36 +1,49 @@
 <template>
-  <v-app>
-    <v-title>{{msg}}</v-title>
-    <h1>{{age}}</h1>
-    <control></control>
-    <keyboard></keyboard>
-  </v-app>
+    <v-layout align-end row style="background: green">
+      <v-flex md>
+          <v-list>
+            <v-list-tile v-for="training in trainings" :key="training">
+                <v-list-tile-content>
+                    <v-list-tile-title v-text="training"></v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-flex>
+        <v-flex md>
+          <trainingContainer :trainingPhases="trainingPhases"></trainingContainer>
+        </v-flex>
+        
+    </v-layout>
 </template>
 
 <script>
-import Hello from './components/HelloWorld.vue'
-import Keyboard from './components/Keyboard.vue'
+import TrainingContainer from './muscleApp/TrainingContainer.vue'
 
 export default {
   props: {
-    age: {
-      type: Number,
-      default: 20
+    trainingPhases: {
+      default: [
+        {title: 'Warm up', icon:'fas fa-search'},
+        {title: 'Stretich', icon:'fa-list'},
+        {title: 'Workout', icon:'fa-lock'},
+        {title: 'Cardio', icon:'fa-edit'},
+        {title: 'Cardiooo', icon:'fa-search'}
+      ]
+    },
+    trainings: {
+      default: ['Trainign2', 'Trainign3', 'Trainign4', 'Trainign5']
     }
   },
   components: {
-    'control': Hello,
-    'keyboard': Keyboard
-  },
-  data () {
-    return {
-      msg: "Hello world :)"
-    }
-  },
-  methods: {
-    greeting: function(){
-      return "Greeting from function"
-    }
+    'trainingContainer': TrainingContainer
   }
 }
 </script>
+
+<style scoped>
+.listTrainingStyle {
+        display: flex;
+        flex-direction: row;
+        color: rebeccapurple;
+    }
+</style>
