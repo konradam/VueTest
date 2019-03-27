@@ -2,9 +2,9 @@
     <v-list class="listStyle">
         <v-list-tile v-for="trainingPhase in trainingPhases" :key="trainingPhase.title">
             <v-tooltip right>
-                <template v-slot:activator="{ on }"> -->
-                    <v-btn fab small color="error">
-                        <v-icon dark v-text="trainingPhase.icon"></v-icon>
+                <template v-slot:activator="{ on }">
+                    <v-btn fab small>
+                        <v-icon style="color: red" v-text="trainingPhase.icon"></v-icon>
                     </v-btn>
                 </template>
                 <span v-text="trainingPhase.title"></span>
@@ -28,7 +28,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: flex-end;
+        justify-content: center;
         color: rebeccapurple;
         background-color: yellow;
     }
