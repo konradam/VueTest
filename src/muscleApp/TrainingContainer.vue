@@ -1,23 +1,25 @@
-<template>
-    <v-list class="listStyle">
-        <v-list-tile v-for="trainingPhase in trainingPhases" :key="trainingPhase.title">
-            <v-tooltip right>
-                <template v-slot:activator="{ on }">
-                    <v-btn fab small>
-                        <v-icon style="color: red" v-text="trainingPhase.icon"></v-icon>
-                    </v-btn>
-                </template>
-                <span v-text="trainingPhase.title"></span>
-            </v-tooltip>
-        </v-list-tile>
-    </v-list>
+<template >
+    <div class="listStyle">
+        <phaseButton v-for="trainingPhase in trainingPhases" :key="trainingPhase.title" :icon="trainingPhase.icon" :tooltip="trainingPhase.title"></phaseButton>
+    </div>
 </template>
 
 <script>
+import PhaseButton from './PhaseButton.vue'
 export default {
     props: {
         trainingPhases: {
             type: Array
+        },
+        currentPhase: {
+        }
+    },
+    components: {
+        'phaseButton': PhaseButton
+    },
+    methods: {
+        showTrainingPhaseContainer: function(phase){
+            this.currentPhase = phase;
         }
     }
 }

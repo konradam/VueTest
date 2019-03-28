@@ -1,6 +1,6 @@
 <template>
     <v-layout row style="background: green; height: 100%">
-      <v-flex md>
+      <v-flex>
           <v-list>
             <v-list-tile v-for="training in trainings" :key="training">
                 <v-list-tile-content>
@@ -9,10 +9,9 @@
             </v-list-tile>
           </v-list>
         </v-flex>
-        <v-flex md>
+        <v-flex>
           <trainingContainer :trainingPhases="trainingPhases" style="height: 100%"></trainingContainer>
         </v-flex>
-        
     </v-layout>
 </template>
 
@@ -24,10 +23,10 @@ export default {
     trainingPhases: {
       default: [
         {title: 'Warm up', icon:'alarm'},
-        {title: 'Stretich', icon:'fa-list'},
-        {title: 'Workout', icon:'fa-lock'},
-        {title: 'Cardio', icon:'fa-edit'},
-        {title: 'Cardiooo', icon:'fa-search'}
+        {title: 'Stretich', icon:'list'},
+        {title: 'Workout', icon:'lock'},
+        {title: 'Cardio', icon:'edit'},
+        {title: 'Cardiooo', icon:'search'}
       ]
     },
     trainings: {
